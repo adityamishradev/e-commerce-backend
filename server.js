@@ -1,5 +1,5 @@
 import express from 'express'
-import mongoose from 'mongoose';
+import "./config/db.js";
 import bodyParser from 'express'
 import userRouter from './Routes/user.js'
 import productRouter from './Routes/product.js'
@@ -36,11 +36,6 @@ app.use('/api/address',addressRouter)
 // // payment Router
  app.use('/api/payment',paymentRouter)
 
-mongoose.connect(
-  "mongodb+srv://codesnippet02:RitvWpYMQotElP8v@cluster0.tmblrvd.mongodb.net/",{
-    dbName:"MERN_E_Commerce"
-  }
-).then(()=>console.log("MongoDB Connected Succssfully...!")).catch((err)=>console.log(err));
 
-const port = 1000;
+const port = 3000;
 app.listen(port,()=>console.log(`Server a  is running on port ${port}`))
